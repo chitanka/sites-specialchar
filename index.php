@@ -5,12 +5,12 @@ function getInput($name) {
 $inputChar = getInput('char');
 $inputMark = getInput('mark');
 
-$diacritics = [
+$diacritics = array(
 	"titlo" => "҃",
-];
-$diacriticTitles = [
+);
+$diacriticTitles = array(
 	"titlo" => "Титло (и҃)",
-];
+);
 ?>
 <!DOCTYPE html>
 <html lang="bg">
