@@ -1,4 +1,7 @@
 <?php
+function unichr($uniPos) {
+	return mb_convert_encoding("&#$uniPos;", 'UTF-8', 'HTML-ENTITIES');
+}
 function getInput($name) {
 	return filter_input(INPUT_GET, $name, FILTER_SANITIZE_SPECIAL_CHARS | FILTER_SANITIZE_ENCODED);
 }
@@ -6,10 +9,14 @@ $inputChar = getInput('char');
 $inputMark = getInput('mark');
 
 $diacritics = array(
-	"titlo" => "҃",
+	'titlo' => "҃",
+	'acute-accent' => unichr(769),
+	'grave-accent' => unichr(768),
 );
 $diacriticTitles = array(
-	"titlo" => "Титло (и҃)",
+	'titlo' => 'Титло (и҃)',
+	'acute-accent' => 'Акут (остро или меко ударение)',
+	'grave-accent' => 'Гравис (тежко или твърдо ударение)',
 );
 ?>
 <!DOCTYPE html>
