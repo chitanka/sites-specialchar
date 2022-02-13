@@ -8,16 +8,16 @@ function getInput($name) {
 $inputChar = getInput('char');
 $inputMark = getInput('mark');
 
-$diacritics = array(
-	'titlo' => "҃",
-	'acute-accent' => unichr(769),
-	'grave-accent' => unichr(768),
-);
-$diacriticTitles = array(
-	'titlo' => 'Титло (и҃)',
-	'acute-accent' => 'Акут (остро или меко ударение)',
-	'grave-accent' => 'Гравис (тежко или твърдо ударение)',
-);
+$config = [
+	'titlo' => ["҃", 'Титло (и҃)', ''],
+	'acute-accent' => [unichr(769), 'Акут (остро или меко ударение)', ''],
+	'grave-accent' => [unichr(768), 'Гравис (тежко или твърдо ударение)', ''],
+	'macron' => [unichr(772), 'Макрон (черта отгоре)', 'https://en.wikipedia.org/wiki/Macron_(diacritic)'],
+	'dot-above' => [unichr(775), 'Точка отгоре', 'https://en.wikipedia.org/wiki/Dot_(diacritic)'],
+	'dot-below' => [unichr(803), 'Точка отдолу', 'https://en.wikipedia.org/wiki/Dot_(diacritic)'],
+];
+$diacritics = array_combine(array_keys($config), array_column($config, 0));
+$diacriticTitles = array_combine(array_keys($config), array_column($config, 1));
 ?>
 <!DOCTYPE html>
 <html lang="bg">
